@@ -14,10 +14,19 @@ public class Company {
 
         employees[3].setSalary(5500.0);
 
+        int nonManagerCount = 0;
+        for (Employee employee : employees) {
+            if (!(employee instanceof Manager)) {
+                nonManagerCount++;
+            }
+        }
+
+        ((Manager) employees[0]).setNumberOfSubordinates(nonManagerCount);
+        employees[0].setSalary(7500.0);
+
         System.out.println("Wszyscy pracownicy:");
         for (Employee employee : employees) {
             System.out.println(employee);
         }
     }
-
 }
